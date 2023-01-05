@@ -1,4 +1,4 @@
-package com.example.lovecounter
+package com.example.lovecounter.main
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

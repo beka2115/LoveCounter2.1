@@ -7,16 +7,21 @@
 
     <fragment
         android:id="@+id/resultFragment"
-        android:name="com.example.lovecounter.ResultFragment"
+        android:name="com.example.lovecounter.main.ResultFragment"
         android:label="fragment_result"
         tools:layout="@layout/fragment_result" />
     <fragment
         android:id="@+id/calculateFragment"
-        android:name="com.example.lovecounter.CalculateFragment"
+        android:name="com.example.lovecounter.main.CalculateFragment"
         android:label="fragment_calculate"
         tools:layout="@layout/fragment_calculate" >
         <action
             android:id="@+id/action_calculateFragment_to_resultFragment"
             app:destination="@id/resultFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/onBoardingFragment"
+        android:name="com.example.lovecounter.onBoarding.OnBoardingFragment"
+        android:label="fragment_on_boarding"
+        tools:layout="@layout/fragment_on_boarding" />
 </navigation>

@@ -12,6 +12,6 @@ interface LoveApi {
         @Query("fname") firstName: String,
         @Query("sname") secondName: String,
         @Header("X-RapidAPI-Key") key: String = "3db5a800b7mshbc26d77c51b16fcp1219acjsnb47d98bc7360",
-        @Header("X-RapidAPI-Host") host: String ="love-calculator.p.rapidapi.com"
+        @Header("X-RapidAPI-Host") host: String = "love-calculator.p.rapidapi.com"
     ): Call<LoveModel>
 }
