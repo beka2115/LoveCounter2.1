@@ -42,7 +42,7 @@ class CalculateFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         pref.onPref(requireContext())
-        if (pref.isOnBoardingShow() == true) {
+        if (pref.isOnBoardingShow()) {
             findNavController().navigate(R.id.onBoardingFragment)
         }
         initClicker()

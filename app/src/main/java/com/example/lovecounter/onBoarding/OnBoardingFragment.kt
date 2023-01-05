@@ -7,8 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.lovecounter.Pref
+import com.example.lovecounter.R
 import com.example.lovecounter.databinding.FragmentOnBoardingBinding
 import dagger.hilt.android.AndroidEntryPoint
+import me.relex.circleindicator.CircleIndicator3
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -31,10 +33,12 @@ class OnBoardingFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         pref.onPref(requireContext())
         adapter = OnBoardingAdapter {
-            pref.saveShowBoarding(true)
+            pref.saveShowBoarding(false)
             findNavController().navigateUp()
         }
         binding.pager.adapter = adapter
+        val indicator=view.findViewById<CircleIndicator3>(R.id.circle_indicator)
+        indicator.setViewPager(binding.pager)
     }
 
 }
