@@ -12,6 +12,7 @@ import com.example.lovecounter.LoveViewModel
 import com.example.lovecounter.Pref
 import com.example.lovecounter.R
 import com.example.lovecounter.databinding.FragmentCalculateBinding
+import com.example.lovecounter.di.App
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -20,9 +21,8 @@ class CalculateFragment : Fragment() {
 
     @Inject
     lateinit var pref: Pref
-
-    lateinit var binding: FragmentCalculateBinding
-    val viewModel: LoveViewModel by viewModels()
+    private lateinit var binding: FragmentCalculateBinding
+    private val viewModel: LoveViewModel by viewModels()
 
     companion object {
         const val KEY_FOR_PERCENTAGE = "key1"
@@ -50,7 +50,9 @@ class CalculateFragment : Fragment() {
 
     private fun initClicker() {
         with(binding) {
-
+            historyBtn.setOnClickListener {
+                findNavController().navigate(R.id.historyFragment)
+            }
             calculateBtn.setOnClickListener {
                 viewModel.getLiveLoveModel(
                     firstNameEd.text.toString(),
@@ -59,6 +61,7 @@ class CalculateFragment : Fragment() {
                     viewLifecycleOwner
                 ) {
                     sendData(it.percentage, it.result, it.firstName, it.secondName)
+                    App.appDataBase.getDao().insertLove(it)
                 }
             }
         }

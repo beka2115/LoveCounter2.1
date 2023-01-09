@@ -1,8 +1,6 @@
 package com.example.lovecounter.di
 
-import android.content.Context
 import com.example.lovecounter.Pref
-import com.example.lovecounter.main.CalculateFragment
 import com.example.lovecounter.remote.LoveApi
 import dagger.Module
 import dagger.Provides
