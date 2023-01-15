@@ -13,7 +13,7 @@ class Pref{
     }
 
     fun isOnBoardingShow(): Boolean {
-        return pref.getBoolean(BOARDING_SHOW, true)
+        return pref.getBoolean(BOARDING_SHOW, false)
     }
 
     fun saveShowBoarding(isShow: Boolean) {

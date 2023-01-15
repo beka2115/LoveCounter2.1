@@ -12,10 +12,22 @@ class OnBoardingAdapter(
     val onClick: () -> Unit
 ) : RecyclerView.Adapter<OnBoardingAdapter.OnBoardingViewHolder>() {
     private val arrayList = arrayListOf(
-        OnBoarding(R.drawable.love_picture, "It's Funs and Many more"),
-        OnBoarding( R.drawable.good_time,"Have a good time","You should take the time to help those who need you"),
-        OnBoarding( R.drawable.cherishing_love,"Cherishing love","It is now no longer possible for you to cherish love"),
-        OnBoarding( R.drawable.hello,"Have a breakup?","We have made the correction for you don't worry")
+        OnBoarding(R.raw.love, "It's Funs and Many more"),
+        OnBoarding(
+            R.raw.spend,
+            "Have a good time",
+            "You should take the time to help those who need you"
+        ),
+        OnBoarding(
+            R.raw.cherishing_love,
+            "Cherishing love",
+            "It is now no longer possible for you to cherish love"
+        ),
+        OnBoarding(
+            R.raw.heart,
+            "Have a breakup?",
+            "We have made the correction for you don't worry"
+        )
     )
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OnBoardingViewHolder {
@@ -47,7 +59,7 @@ class OnBoardingAdapter(
             binding.textSkip.isVisible = adapterPosition != arrayList.lastIndex
             binding.titleBoarding.text = onBoarding.title
             binding.textBoarding.text = onBoarding.text
-            binding.onBoardingImg.load(onBoarding.image)
+            onBoarding.image?.let { binding.onBoardingImg.setAnimation(it) }
         }
     }
 }
